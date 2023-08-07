@@ -1,4 +1,5 @@
 <?php
+@include 'config.php';
 if(isset($message)){
    foreach($message as $message){
       echo '
@@ -16,14 +17,14 @@ if(isset($message)){
     <div class="flex">
 
 
-        <a href="home.php" ><img src="images/logo.png" class="logo"></a>
+        <a href="indexx.php" ><img src="images/logo.png" class="logo"></a>
 
         <nav class="navbar">
             <ul>
                 <li><a href="#">RV RENTALS</a></li>
                 <li><a href="#">BLOG</a></li>
-                <li><a href="#">SHOP</a></li>
-                <li><a href="#">LOCATIONS</a></li>
+                <li><a href="items.php">SHOP</a></li>
+                <li><a href="locations.php">LOCATIONS</a></li>
             </ul>
         </nav>
         <div class="navbar">

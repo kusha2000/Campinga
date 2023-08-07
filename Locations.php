@@ -66,7 +66,7 @@ if(isset($_POST['add_to_cart'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>shop</title>
+   <title>Locations</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -79,13 +79,11 @@ if(isset($_POST['add_to_cart'])){
 <body>
    
 <?php
-if(!isset($user_id)){
+
    @include 'header_no_top.php'; 
    @include 'header_no.php'; 
-   
-}else{
-   @include 'header.php'; 
-}
+
+
 
 
   if(isset($_GET['location'])){
@@ -146,7 +144,7 @@ if(!isset($user_id)){
                     <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
                     <div class="place"><?php echo $fetch_products['province']; ?>,&nbsp<?php echo $fetch_products['district']; ?></div>
                     
-                    <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" ><div class="name"><?php echo $fetch_products['name']; ?></div></a>
+                    <a href="items.php?pid=<?php echo $fetch_products['id']; ?>" ><div class="name"><?php echo $fetch_products['name']; ?></div></a>
                     <div class="level">Safety level <?php echo $fetch_products['level']; ?></div>
                     
                     

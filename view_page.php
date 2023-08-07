@@ -41,9 +41,16 @@ if(isset($_POST['add_to_cart'])){
 
         $user_id = $_SESSION['user_id'];
         $product_id = $_GET['pid'];
-        $event_type = $_POST["pac_type"];
-        //echo $event_type;
+        $quantity=$_POST['quan'];
+        $from=$_POST['from'];
+        $to=$_POST['to'];
+        $deliver=$_POST['check'];
 
+        $select_price = mysqli_query($conn, "SELECT * FROM `items` WHERE id = '$product_id' ") or die('query failed');
+        $fetch_price = mysqli_fetch_assoc($select_price);
+        $price=$fetch_price['price'];
+
+        $total_price = $price*$quantity;
 
         $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE pid = '$product_id' AND user_id = '$user_id'") or die('query failed-48');
 
@@ -57,14 +64,53 @@ if(isset($_POST['add_to_cart'])){
                 mysqli_query($conn, "DELETE FROM `wishlist` WHERE pid = '$product_id' AND user_id = '$user_id'") or die('query failed');
             }
 
-            mysqli_query($conn, "INSERT INTO `cart`(user_id, pid, event_type) VALUES('$user_id', '$product_id', '$event_type')") or die('query failed-60');
+            mysqli_query($conn, "INSERT INTO `cart`(user_id,pid ,quantity,from_d,to_d,deliver,total) VALUES('$user_id', '$product_id','$quantity','$from','$to','$deliver','$total_price')") or die(mysqli_error($conn));
             $message[] = 'product added to cart';
-            header('location:before_checkout.php');
+            
         }
 
      }
 
-    
+}
+if(isset($_POST['buy_now'])){
+
+    if(!isset($_SESSION['user_id'])){
+        $message[] = 'You have to login first';
+        header('location:login.php');
+     }else{
+
+        $user_id = $_SESSION['user_id'];
+        $product_id = $_GET['pid'];
+        $quantity=$_POST['quan'];
+        $from=$_POST['from'];
+        $to=$_POST['to'];
+        $deliver=$_POST['check'];
+
+        $select_price = mysqli_query($conn, "SELECT * FROM `items` WHERE id = '$product_id' ") or die('query failed');
+        $fetch_price = mysqli_fetch_assoc($select_price);
+        $price=$fetch_price['price'];
+
+        $total_price = $price*$quantity;
+
+        $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE pid = '$product_id' AND user_id = '$user_id'") or die('query failed-48');
+
+        if(mysqli_num_rows($check_cart_numbers) > 0){
+            $message[] = 'already added to cart';
+        }else{
+
+            $check_wishlist_numbers = mysqli_query($conn, "SELECT * FROM `wishlist` WHERE pid = '$product_id' AND user_id = '$user_id'") or die('query failed-54');
+
+            if(mysqli_num_rows($check_wishlist_numbers) > 0){
+                mysqli_query($conn, "DELETE FROM `wishlist` WHERE pid = '$product_id' AND user_id = '$user_id'") or die('query failed');
+            }
+
+            mysqli_query($conn, "INSERT INTO `cart`(user_id,pid ,quantity,from_d,to_d,deliver,total) VALUES('$user_id', '$product_id','$quantity','$from','$to','$deliver','$total_price')") or die(mysqli_error($conn));
+            $message[] = 'product added to cart';
+            header('location:before_checkout.php');
+            
+        }
+
+     }
 
 }
 
@@ -92,12 +138,10 @@ if(isset($_POST['add_to_cart'])){
    
 
 <?php
-if(!isset($user_id)){
+
    @include 'header_no_top.php'; 
    @include 'header_no.php'; 
-}else{
-   @include 'header.php'; 
-}
+
  ?>
 
 <section class="quick-view">
@@ -132,7 +176,7 @@ if(!isset($user_id)){
                         $fetch_planner = mysqli_fetch_assoc($select_event_planners);
                     ?>
                     <div class="planner">
-                        <img src="uploaded_img/<?php echo $fetch_planner['image'] ?>" alt="" class="e-image">
+                        <img src="uploaded_img/<?php echo $fetch_planner['img'] ?>" alt="" class="e-image">
                         <div class="e-name"><?php echo $fetch_planner['name']; ?></div>
                     </div>
                     <div class="wishlist">
@@ -164,7 +208,7 @@ if(!isset($user_id)){
                         </div>
                         <div class="normal">
                             <span>No of Pieces<span><br>
-                            <select name="" id>
+                            <select name="quan" id>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -185,7 +229,7 @@ if(!isset($user_id)){
                                     <label>Yes</label>
                                 </div>
                                 <div class="box">
-                                    <input type="radio" id="no" name="check" value="No">
+                                    <input type="radio" id="no" name="check" value="No" CHECKED>
                                     <label>No</label>
                                 </div>
                             </div>
@@ -204,8 +248,9 @@ if(!isset($user_id)){
                         
                         <input type="submit" value="add to cart" name="add_to_cart" class="btn cart-button">
                         
-                        <input type="submit" value="BUY NOW" name="add_to_cart" class="btn buy-button">
-                        <input type="submit" value="contact the Render" name="add_to_cart" class="btn contact-button">
+                        <input type="submit" value="BUY NOW" name="buy_now" class="btn buy-button">
+                        <a href="real_chat/index.php?pid=<?php echo $pid?>" class="btn contact-button">contact the Render</a>
+                        <!-- <input type="submit" value="contact the Render" name="add_to_cart" class="btn contact-button"> -->
                     </form>
                     <?php
                         }
@@ -230,32 +275,86 @@ if(!isset($user_id)){
                     echo $fetch_product_details['description'];
                 ?>
                     
-                    <!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore saepe corporis corrupti dolorem accusamus, ducimus aspernatur quod libero blanditiis fugiat illum veniam amet, enim mollitia eius doloribus voluptatum voluptatem culpa.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium, nobis tempora amet laborum quo perferendis id maiores, dolor nihil porro odit fugit sunt cumque impedit magnam. Ab possimus dolorum voluptas.<br><br>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore saepe corporis corrupti dolorem accusamus, ducimus aspernatur quod libero blanditiis fugiat illum veniam amet, enim mollitia eius doloribus voluptatum voluptatem culpa.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium, nobis tempora amet laborum quo perferendis id maiores, dolor nihil porro odit fugit sunt cumque impedit magnam. Ab possimus dolorum voluptas.<br><br>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore saepe corporis corrupti dolorem accusamus, ducimus aspernatur quod libero blanditiis fugiat illum veniam amet, enim mollitia eius doloribus voluptatum voluptatem culpa.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium, nobis tempora amet laborum quo perferendis id maiores, dolor nihil porro odit fugit sunt cumque impedit magnam. Ab possimus dolorum voluptas.<br> -->
                 </div>
             </div>
             
-            <div class="empty">
+            <div class="qw">
             </div>
         </div>
-
     </div>
+
+    
+    
+    
+<section class="locations" style="margin-left:10rem">
+   <div class="flex">
+        
+
+        <div class="products">
+            
+
+            <div class="eve_name" style="border-bottom:0.3rem solid #666;margin-bottom:2rem">
+                <h3 style="color:var(--black)">
+                    Related Items
+                </h3>
+            </div>
+            
+            <div class="box-container">
+                
+
+                <?php
+                    $select_related = mysqli_query($conn, "SELECT * FROM `items` WHERE id='$pid' ") or die('query failed');
+                    $fetch_related = mysqli_fetch_assoc($select_related);
+                    $tag=$fetch_related['tag'];
+                    $select_products = mysqli_query($conn, "SELECT * FROM `items` WHERE tag='$tag'") or die('query failed');
+                ?>
+
+                <?php
+                    
+                    
+                    if(mysqli_num_rows($select_products) > 0){
+                        while($fetch_products = mysqli_fetch_assoc($select_products)){
+                ?>
+                <form action="" method="POST" class="box">
+                    
+                    
+                    <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
+                    <div class="place">Rs. <?php echo $fetch_products['price']; ?> per day</div>
+                    
+                    <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" ><div class="name"><?php echo $fetch_products['name']; ?></div></a>
+                    <div class="level"><?php echo $fetch_products['small_desc']; ?></div>
+                    
+                    
+                    <input type="hidden" name="product_id" value="<?php echo $fetch_products['id']; ?>">
+                    <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
+                    <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
+
+                    
+                
+                </form>
+                <?php
+                    }
+                }else{
+                    echo '<p class="empty">no events added yet!</p>';
+                }
+                ?>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   
     
     
   
 
     <div class="more-btn">
-        <a href="home.php" class="option-btn">go to home page</a>
+        <a href="indexx.php" class="option-btn">go to home page</a>
     </div>
 
 </section>
-
-
-
 
 
 

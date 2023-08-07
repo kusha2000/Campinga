@@ -20,10 +20,10 @@
 
         <div class="box">
             <h3>Navigate To</h3>
-            <a href="#">Home ></a>
-            <a href="#">Location ></a>
+            <a href="indexx.php">Home ></a>
+            <a href="locations.php">Location ></a>
             <a href="#">Blog ></a>
-            <a href="#">Shop ></a>
+            <a href="items.php">Shop ></a>
             <a href="#">Rentals ></a>
             
         </div>
@@ -32,8 +32,8 @@
             <h3></h3><br><br><br><br>
             <a href="#">RV Rentals ></a>
             <a href="#">Newsletter ></a>
-            <a href="#">Log In ></a>
-            <a href="#">Sign Up ></a>
+            <a href="login.php">Log In ></a>
+            <a href="register.php">Sign Up ></a>
             <a href="#">Terms and Conditions ></a>
         </div>
 

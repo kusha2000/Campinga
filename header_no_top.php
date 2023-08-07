@@ -1,4 +1,5 @@
 <?php
+@include 'config.php';
 if(isset($message)){
    foreach($message as $message){
       echo '
@@ -25,9 +26,14 @@ if(isset($message)){
         
         <div class="navbar">
             <ul>
-                <li><a href="#"><h5>VISIT CAMPINGA</h5></a></li>
-                <li><a href="#"><h6>Log in</h5></a></li>
-                <li><a href="cart.php"><i class="fas fa-shopping-cart"></i><span>0</span></a></li>
+                <li><a href="locations.php"><h5>VISIT CAMPINGA</h5></a></li>
+                <li><a href="login.php"><h6>Log in</h5></a></li>
+                <li><a href="cart.php"><i class="fas fa-shopping-cart"></i><span>
+                <?php
+                $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+                echo mysqli_num_rows($select_cart) ;
+                ?>
+                </span></a></li>
             </ul>
         </div>   
         
