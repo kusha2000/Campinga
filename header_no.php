@@ -10,6 +10,12 @@ if(isset($message)){
       ';
    }
 }
+if(isset($_POST['search-result'])){
+    $search_value = $_POST['search'];
+    
+    header("location:search_page.php?searching=$search_value");
+ }
+
 ?>
 
 <header class="header">
@@ -31,6 +37,8 @@ if(isset($message)){
             <ul>
                 <form action="" method="POST" >
                 <input type="text" class="box" name="search" placeholder="Search Location">
+                <input type="submit" class="seach-btn" name="search-result" value="search" >
+                
                 </form>
             </ul>
         </div>   

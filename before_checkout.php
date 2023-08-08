@@ -98,8 +98,9 @@ if(isset($_POST['order'])){
 </head>
 <body>
    
-<?php @include 'header_no_top.php'; ?>
-<?php @include 'header_no.php'; ?>
+<?php @include 'header_no_top.php'; 
+
+@include 'header_no.php'; ?>
 
 <section class="before-checkout" style="margin-top:2rem">
     <h2>Selecting Package > Confirm and Pay</h2>
@@ -301,18 +302,8 @@ if(isset($_POST['order'])){
 
 <?php @include 'footer.php'; ?>
 
-<!-- <script type="text/javascript">
-    document.getElementsByClass("row1").onclick= function(){
 
-    document.getElementByClass("circle2").style.bacground-color="yellow";
-    }
-    document.getElementsByClass("row2").onclick= function(){
-
-    document.getElementByClass("circle2").style.display="inline-block";
-    }
-</script> -->
-
-<script src="js/script.js"></>
+<script src="js/script.js"></script>
 
 </body>
 </html>

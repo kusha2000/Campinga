@@ -16,8 +16,8 @@ if(isset($message)){
 
     <div class="flex">
 
-        <nav class="navbar">
-            
+        <nav class="navbar" style="margin-left:2rem">
+            <i class="fa-solid fa-moon" id="icon-dark"></i>
         </nav>
 
         <nav class="navbar">

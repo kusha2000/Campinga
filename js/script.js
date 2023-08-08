@@ -1,3 +1,12 @@
+
+var icon=document.getElementById("icon-dark");
+
+icon.onclick=function(){
+  document.body.classList.toggle("dark-theme");
+}
+
+
+
 let slideIndex = 0;
 showSlides();
 
