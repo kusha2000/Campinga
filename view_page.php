@@ -187,6 +187,7 @@ if(isset($_POST['buy_now'])){
                 <div class="pics">
                     <div class="pic1">
                         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
+                        <button>Location</button>
                         <div class="small_desc"><?php echo $fetch_products['small_desc']; ?></div>
                     </div>
                     
@@ -360,7 +361,7 @@ if(isset($_POST['buy_now'])){
 
 <?php @include 'footer.php'; ?>
 
-<script src="js/script.js"></scrip>
+<script src="js/script.js"></script>
 
 </body>
 </html>

@@ -130,6 +130,7 @@ if(isset($_POST['submit-user'])){
 @include 'footer.php';
 
 ?>
+<script src="js/script.js"></script>
 
 
 </body>

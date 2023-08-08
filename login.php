@@ -110,6 +110,7 @@ if(!isset($_SESSION['user_id'])){
 @include 'footer.php';
 
 ?>
+<script src="js/script.js"></script>
 
 </body>
 </html>

@@ -306,7 +306,7 @@ body{
  
  .header .flex .navbar ul{
     list-style: none;
-    color: black;
+    color:var(--caption-black);
  }
  
  
@@ -315,7 +315,7 @@ body{
     position: relative;
     padding-left: 40px;
     font-weight: 700;
-    color: black;
+    color: var(--caption-black);
  }
  
  .header .flex .navbar ul li a{
@@ -385,7 +385,7 @@ body{
  
  .header_top .flex .navbar ul{
     list-style: none;
-    color: black;
+    color: var(--caption-black);
  }
  
  
@@ -394,7 +394,7 @@ body{
     position: relative;
     padding-left: 40px;
     font-weight: 700;
-    color: black;
+    color: var(--caption-black);
  }
  
  .header_top .flex .navbar ul li a{
@@ -467,12 +467,14 @@ body{
  .form-container form h3 {
    text-align: center;
    margin-bottom: 20px;
+   color: var(--caption-black);
  }
  
  .form-container form label {
    display: block;
    font-weight: bold;
    margin-bottom: 10px;
+   color: var(--caption-black);
  }
  
  .form-container form .box {
@@ -504,6 +506,7 @@ body{
  
  .form-container form p {
    text-align: center;
+   color: var(--caption-black);
  }
  
  .form-container form a {
@@ -628,7 +631,7 @@ body{
     width: auto;
     padding: 16px;
     margin-top: -22px;
-    color: white;
+    color: var(--text-white);
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
@@ -801,7 +804,7 @@ body{
     padding: 2rem;
     margin-left: 0.8rem;
     line-height: 4.4rem;
-    color: var(--light-bg);
+    color: var(--text-white);
     font-weight: 400;
  }
  .locations .flex .left-bar .sub a:hover{
@@ -1187,6 +1190,7 @@ body{
    width: 15rem;
    height: 5rem;
    background-color: var(--white);
+   color: var(--caption-black);
    margin-left: 40px;
    margin-bottom: 30px;
    font-weight: 500;
@@ -1317,7 +1321,7 @@ body{
    width: 27rem;
    height: 40rem;
    background-color:var(--primary-card);
-   color: #fff;
+   color: var(--text-white);
    border-radius: 1rem;
    border: .1rem solid transparent;
 
@@ -1450,7 +1454,7 @@ body{
    text-transform: capitalize;
    transition-delay: .1s;
    text-align: center;
-   color: var(--card-price);
+   color: var(--text-white);
    
 }
 
@@ -1521,7 +1525,7 @@ body{
   ----------------------------------------*/
 
   .before-checkout h2{
-   color:var(--light-color);
+   color: var(--caption-black);
    margin-left: 15rem;
 }
 .before-checkout .flex{
@@ -1535,10 +1539,11 @@ body{
 }
 .before-checkout .flex .check h1{
    font-size: 4rem;
+   color: var(--caption-black);
 }
 .before-checkout .flex .check .h3{
    font-size: 1.5rem;
-   color: var(--light-color);
+   color: var(--caption-black);
    margin-top: 2rem;
    
 }
@@ -1575,7 +1580,7 @@ body{
 
 }
 .before-checkout .flex .check .pay-option .row:hover{
-   background-color: white;
+   background-color: var(--white);
 }
 .before-checkout .flex .check .pay-option .row:hover .col1 img{
    display: inline-block;
@@ -1594,11 +1599,13 @@ body{
    width:60%;
    font-size: 2.5rem;
    font-weight: 700;
+   color: var(--caption-black);
 }
 .before-checkout .flex .check .pay-option .col3{
    width:25%;
    font-size: 2rem;
    font-weight: 700;
+   color: var(--caption-black);
 }
 .before-checkout .flex .check .confirm-btn{
    font-size: 2.5rem;
@@ -1619,6 +1626,7 @@ body{
 }
 .before-checkout .flex .display .name{
    margin:1rem;
+   color: var(--caption-black);
 }
 
 .before-checkout .flex .display .pbox .second-line{
@@ -1638,6 +1646,7 @@ body{
 .before-checkout .flex .display .pbox .second-line .stars i{
    
    font-size: 1.8rem;
+   color: var(--caption-black);
    
 }
 .before-checkout .flex .display .pbox .second-line .reviews{
@@ -1677,7 +1686,7 @@ body{
    margin-bottom: 2rem;
 }
 .checkout form{
-   background-color: white;
+   background-color: var(--white);
    border:var(--border);
    max-width: 1200px;
    margin:0 auto;
