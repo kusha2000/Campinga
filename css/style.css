@@ -780,17 +780,10 @@ body{
     top:0;
     background-color: var(--left_bar);
     height:120rem;
-    min-width: 300px;
+    min-width: 350px;
  
  }
- .locations .flex .left-bar{
-    position: relative;
-    left:0;
-    top:0;
-    background-color: var(--left_bar);
-    height:100rem;   
- 
- }
+
  .locations .flex .left-bar .sub h3{
     font-size: 2.5rem;
     color: var(--text-white);
@@ -818,12 +811,13 @@ body{
     padding-bottom: 1rem;
     color:var(--page_topic_red);
  }
+ 
  .locations .flex .products .box-container{
     position: relative;
-    margin-left:4rem;
+    margin-left:3rem;
     display: grid;
     grid-template-columns: auto auto auto auto;
-    gap:4rem;
+    gap:3rem;
     
     
  }
@@ -873,6 +867,76 @@ body{
     text-decoration: underline;
     cursor: pointer;
     color: var(--green);
+ }
+
+
+ .locations .flex .products .weather{
+   margin-bottom: 3rem;
+
+ }
+ .locations .flex .products .weather img{
+   margin-top: 3rem;
+   width:120rem;
+ }
+ .locations .flex .products .weather h3{
+   color: white;
+   position:absolute;
+   top:5rem;
+   left:40rem;
+   font-weight: 300;
+   font-size: 1.7rem;
+ }
+ .locations .flex .products .weather h2{
+   color: white;
+   position:absolute;
+   top:9rem;
+   left:40rem;
+   font-weight: 500;
+   font-size: 3rem;
+ }
+ .locations .flex .products .weather .day_image{
+   width:8rem;
+   object-fit: cover;
+   position:absolute;
+   top:1rem;
+   right:30rem;
+
+ }
+ .locations .flex .products .weather .temp_image{
+
+   width:8rem;
+   object-fit: cover;
+   position:absolute;
+   top:1rem;
+   right:15rem;
+
+ }
+ .locations .flex .products .weather .day_text{
+
+   position:absolute;
+   top:12rem;
+   right:27rem;
+   color: white;
+   font-size: 1.5rem;
+
+ }
+ .locations .flex .products .weather .temp_text{
+
+   position:absolute;
+   top:12rem;
+   right:17rem;
+   color: white;
+   font-size: 1.5rem;
+
+ }
+ .locations .flex .products .weather p{
+   color: white;
+   position:absolute;
+   top:7rem;
+   right:0rem;
+   font-weight: 500;
+   font-size: 1.7rem;
+
  }
 
  /*This is css styles for search_page.php
@@ -1084,20 +1148,63 @@ body{
 .quick-view .p-details .second-sec .item  .pics{
    display: flex;
 }
-.quick-view .p-details .second-sec .item  .pics .pic1 img{
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing2{
+   display: none;
+   
+}
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing1 img{
    height:450px;
    width:700px;
    border-radius: 10%;
    
+}
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing2 img{
+   height:450px;
+   width:700px;
+   border-radius: 10%;
    
+}
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing1 .button1{
+   position: relative;
+   top:8rem;
+   left:55rem;
+   padding: 1.5rem;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   border-radius: 2rem;
+   background-color: var(--white);
+   color: var(--caption-black);
+   font-weight: 400;
+}
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing1 .button1:hover{
+   
+   color: var(--white);
+   background-color: var(--caption-black); 
+}
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing2 .button2{
+   position: relative;
+   top:8rem;
+   left:55rem;
+   padding: 1.5rem;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   border-radius: 2rem;
+   background-color: var(--btn-red);
+   color: var(--text-white);
+   font-weight: 400;
+}
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing2 .button2:hover{
+   
+   color: var(--white);
+   background-color: var(--caption-black); 
 }
 .quick-view .p-details .second-sec .item  .pics .pic1 .small_desc{
    font-size: 2rem;
    color: var(--black);
    margin-top: 2rem;
-   margin-left: 2rem;
-   
-   
+   margin-left: 2rem; 
 }
 
 

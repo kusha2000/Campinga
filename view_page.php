@@ -186,8 +186,20 @@ if(isset($_POST['buy_now'])){
                 </div>
                 <div class="pics">
                     <div class="pic1">
+
+                        <div class="showing1">
+                        <button class="button1" onclick="document.querySelector('.quick-view .p-details .second-sec .item  .pics .pic1 .showing1').style.display = 'none';
+  document.querySelector('.quick-view .p-details .second-sec .item  .pics .pic1 .showing2').style.display = 'block';">Location <i class="fa-sharp fa-solid fa-location-dot" style="color: #ff0000;"></i></button>
                         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
-                        <button>Location</button>
+                        </div>
+                        <div class="showing2">
+                        <button class="button2" onclick="document.querySelector('.quick-view .p-details .second-sec .item  .pics .pic1 .showing1').style.display = 'block';
+  document.querySelector('.quick-view .p-details .second-sec .item  .pics .pic1 .showing2').style.display = 'none';">Back <i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i></i></button>
+                        <img src="uploaded_img/location1.png" alt="" class="image">
+                        </div>
+
+                        
+                        
                         <div class="small_desc"><?php echo $fetch_products['small_desc']; ?></div>
                     </div>
                     
