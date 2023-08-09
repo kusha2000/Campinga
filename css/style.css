@@ -1164,6 +1164,12 @@ body{
    border-radius: 10%;
    
 }
+.quick-view .p-details .second-sec .item  .pics .pic1 .showing2 .image{
+   height:450px;
+   width:700px;
+   border-radius: 10%;
+   
+}
 .quick-view .p-details .second-sec .item  .pics .pic1 .showing1 .button1{
    position: relative;
    top:8rem;

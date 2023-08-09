@@ -211,8 +211,22 @@ if(isset($_POST['add_to_cart'])){
                     
                     <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
                     <div class="place">Rs. <?php echo $fetch_products['price']; ?> per day</div>
+
+                    <?php
+
+                    if(isset($_GET['pid'])){
+                ?>
+                    <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>&lid=<?php echo $_GET['pid'] ?>" ><div class="name"><?php echo $fetch_products['name']; ?></div></a>
+                <?php
+                }
+                
+                    if(!isset($_GET['pid'])){
+                ?>
+                    <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>&lid=<?php echo $fetch_products['id']; ?>" ><div class="name"><?php echo $fetch_products['name']; ?></div></a>
+                <?php
+                }
+                ?>
                     
-                    <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" ><div class="name"><?php echo $fetch_products['name']; ?></div></a>
                     <div class="level"><?php echo $fetch_products['small_desc']; ?></div>
                     
                     

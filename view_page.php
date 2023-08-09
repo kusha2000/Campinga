@@ -195,7 +195,23 @@ if(isset($_POST['buy_now'])){
                         <div class="showing2">
                         <button class="button2" onclick="document.querySelector('.quick-view .p-details .second-sec .item  .pics .pic1 .showing1').style.display = 'block';
   document.querySelector('.quick-view .p-details .second-sec .item  .pics .pic1 .showing2').style.display = 'none';">Back <i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i></i></button>
-                        <img src="uploaded_img/location1.png" alt="" class="image">
+
+                            <?php 
+
+                                if(isset($_GET['lid'])){
+                                    $lid = $_GET['lid'];
+                                }
+                            $select_location = mysqli_query($conn, "SELECT * FROM `locations` WHERE id = '$lid'") or die('query failed');
+                            $fetch_location = mysqli_fetch_assoc($select_location);
+                            $address = $fetch_location["district"];
+                            $address = str_replace(" ", "+", $address);
+                            ?>
+
+                            <iframe class="image" src="https://maps.google.com/maps?q=<?php echo $address; ?>&output=embed"></iframe>
+
+                            
+                        
+                        <!-- <img src="uploaded_img/location1.png" alt="" class="image"> -->
                         </div>
 
                         
