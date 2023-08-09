@@ -142,10 +142,7 @@ if(isset($_POST['add_to_cart'])){
         <div class="products">
             
         <div class="weather">
-                <img src="uploaded_img/weadther.png">
-                <h3>Home > Locations > Rentals</h3>
-
-                <?php
+        <?php
                 if(isset($_GET['pid'])){
                     $select_product_id = mysqli_query($conn, "SELECT * FROM `locations` WHERE id='$pr_id'") or die('query failed');
                     $fetch_product_id = mysqli_fetch_assoc($select_product_id);
@@ -169,7 +166,7 @@ if(isset($_POST['add_to_cart'])){
                         $msg=$result['message'];
                     }
                 ?>
-                    <h2><?php echo $fetch_product_id['name']; ?></h2>
+                <h2><?php echo $fetch_product_id['name']; ?></h2>
                     <img src="images/day.png" class="day_image">
                     <img src="images/temperature.png" class="temp_image">
                     <span class="day_text"><?php echo $result['weather'][0]['main']?> Weather</span>
@@ -183,6 +180,17 @@ if(isset($_POST['add_to_cart'])){
                 }
                 
                 ?>
+                <img src="uploaded_img/weadther.png">
+                <h3>Home > Locations > Rentals > 
+                    <?php
+                        if(isset($_GET['pid'])){
+                            echo $city;
+                        }
+                    ?>
+                </h3>
+
+                
+                    
                 
                 
 
