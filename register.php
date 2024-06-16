@@ -37,8 +37,11 @@ if(isset($_POST['submit-user'])){
       $image_folter = 'uploaded_img/'.$image;
    }
    
+   $min = 1;
+   $max = 10000000;
+   $randomNumberInRange = rand($min, $max);
 
-   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('query failed');
+   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('Query failed: ' . mysqli_error($conn));
 
    if(mysqli_num_rows($select_users) > 0){
       $message[] = 'user already exist!';
@@ -47,9 +50,9 @@ if(isset($_POST['submit-user'])){
          $message[] = 'confirm password not matched!';
       }else{
          if(isset($_FILES['image'])){
-            $insert_product=mysqli_query($conn, "INSERT INTO `users`(f_name,l_name,nic,t_no,name, email, password,about,image,user_type) VALUES('$fname','$lname','$nic','$tno','$name', '$email', '$pass','$about','$image','user')") or die('query failed');
+            $insert_product=mysqli_query($conn, "INSERT INTO `users`(f_name,l_name,nic,t_no,name, email, password,about,image,unique_id,username,status,user_type) VALUES('$fname','$lname','$nic','$tno','$name', '$email', '$pass','$about','$image','$randomNumberInRange','$name','offline','user')") or die('Query failed: ' . mysqli_error($conn));
          }else{
-            $insert_product=mysqli_query($conn, "INSERT INTO `users`(f_name,l_name,nic,t_no,name, email, password,about,user_type) VALUES('$fname','$lname','$nic','$tno','$name', '$email', '$pass','$about','user')") or die('query failed');
+            $insert_product=mysqli_query($conn, "INSERT INTO `users`(f_name,l_name,nic,t_no,name, email, password,about,unique_id,username,status,user_type) VALUES('$fname','$lname','$nic','$tno','$name', '$email', '$pass','$about','$randomNumberInRange','$name','offline','user')") or die('Query failed: ' . mysqli_error($conn));
          }
          
          if($insert_product && isset($_FILES['image'])){

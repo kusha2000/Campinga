@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 08, 2023 at 07:51 AM
+-- Generation Time: Jun 16, 2024 at 05:43 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `to_d` varchar(20) NOT NULL,
   `deliver` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS `cart` (
 INSERT INTO `cart` (`id`, `user_id`, `pid`, `quantity`, `total`, `from_d`, `to_d`, `deliver`) VALUES
 (46, 5, 4, 1, 450, '', '', 'No'),
 (43, 2, 2, 1, 300, '', '', 'No'),
-(45, 5, 1, 1, 365, '', '', 'No');
+(45, 5, 1, 1, 365, '', '', 'No'),
+(47, 19, 1, 1, 365, '', '', 'No');
 
 -- --------------------------------------------------------
 
@@ -171,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `tbl_message` (
   `curr_date` text NOT NULL,
   `curr_time` text NOT NULL,
   PRIMARY KEY (`msg_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_message`
@@ -190,7 +191,9 @@ INSERT INTO `tbl_message` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `text
 (18, '320634488', '1476479542', 'hi', 'August 7, 2023 ', '7:49 pm'),
 (19, '1476479542', '320634488', 'yes tell', 'August 7, 2023 ', '7:49 pm'),
 (20, '320634488', '665130422', 'hi\n', 'August 8, 2023 ', '1:36 pm'),
-(21, '993628918', '665130422', 'hi\n', 'August 8, 2023 ', '1:40 pm');
+(21, '993628918', '665130422', 'hi\n', 'August 8, 2023 ', '1:40 pm'),
+(22, '320634488', '665130422', 'hi', 'June 16, 2024 ', '11:12 am'),
+(23, '320634488', '7483837', 'hi', 'June 16, 2024 ', '11:31 am');
 
 -- --------------------------------------------------------
 
@@ -211,11 +214,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_type` varchar(20) NOT NULL DEFAULT 'user',
   `img` varchar(100) NOT NULL DEFAULT 'default.jpg',
   `about` varchar(10000) NOT NULL,
-  `unique_id` text NOT NULL,
-  `username` text NOT NULL,
-  `status` text NOT NULL,
+  `unique_id` text,
+  `username` text,
+  `status` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
