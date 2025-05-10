@@ -11,8 +11,7 @@ We've created a Camping Item Management System, which is a comprehensive web app
 ✅Live Temperature Updates: Camping often involves exposure to various weather conditions. Our system displays live temperature data for hiking places, allowing users to plan their trips and pack accordingly. This feature can enhance safety and comfort during outdoor adventures.<br>
 ✅Item Ordering: Users can select and order camping items from sellers directly through the website. The ordering process includes a shopping cart, order confirmation, and payment integration for a seamless transaction experience.<br>
 </ul>
-Technologies <br>
----------------
+<h3>Technologies Used</h3>
 <ul>
 🔹 Frontend - HTML, CSS, and JavaScript<br>
 🔹 Backend  - PHP and JavaScript <br>
